@@ -17,10 +17,27 @@
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
+/* El trazo toma el color del rotulador de la app. */
+:root[data-color="amarillo"] .sb-swash { background-image: url("./assets/subrayado-amarillo.svg"); }
+:root[data-color="rosa"] .sb-swash { background-image: url("./assets/subrayado-rosa.svg"); }
+:root[data-color="verde"] .sb-swash { background-image: url("./assets/subrayado-verde.svg"); }
+:root[data-color="azul"] .sb-swash { background-image: url("./assets/subrayado-azul.svg"); }
+:root[data-color="naranja"] .sb-swash { background-image: url("./assets/subrayado-naranja.svg"); }
+:root[data-color="lila"] .sb-swash { background-image: url("./assets/subrayado-lila.svg"); }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .sb-swash { background-image: url("./assets/subrayado-oscuro.svg"); }
+  :root:not([data-theme="light"]) .sb-swash, :root[data-color="amarillo"]:not([data-theme="light"]) .sb-swash { background-image: url("./assets/subrayado-amarillo-oscuro.svg"); }
+  :root[data-color="rosa"]:not([data-theme="light"]) .sb-swash { background-image: url("./assets/subrayado-rosa-oscuro.svg"); }
+  :root[data-color="verde"]:not([data-theme="light"]) .sb-swash { background-image: url("./assets/subrayado-verde-oscuro.svg"); }
+  :root[data-color="azul"]:not([data-theme="light"]) .sb-swash { background-image: url("./assets/subrayado-azul-oscuro.svg"); }
+  :root[data-color="naranja"]:not([data-theme="light"]) .sb-swash { background-image: url("./assets/subrayado-naranja-oscuro.svg"); }
+  :root[data-color="lila"]:not([data-theme="light"]) .sb-swash { background-image: url("./assets/subrayado-lila-oscuro.svg"); }
 }
-:root[data-theme="dark"] .sb-swash { background-image: url("./assets/subrayado-oscuro.svg"); }
+:root[data-theme="dark"] .sb-swash, :root[data-color="amarillo"][data-theme="dark"] .sb-swash { background-image: url("./assets/subrayado-amarillo-oscuro.svg"); }
+:root[data-color="rosa"][data-theme="dark"] .sb-swash { background-image: url("./assets/subrayado-rosa-oscuro.svg"); }
+:root[data-color="verde"][data-theme="dark"] .sb-swash { background-image: url("./assets/subrayado-verde-oscuro.svg"); }
+:root[data-color="azul"][data-theme="dark"] .sb-swash { background-image: url("./assets/subrayado-azul-oscuro.svg"); }
+:root[data-color="naranja"][data-theme="dark"] .sb-swash { background-image: url("./assets/subrayado-naranja-oscuro.svg"); }
+:root[data-color="lila"][data-theme="dark"] .sb-swash { background-image: url("./assets/subrayado-lila-oscuro.svg"); }
 
 .sb-hand { font-family: var(--font-hand); font-weight: 600; color: var(--accent); line-height: 1.1; display: inline-block; transform: rotate(-2deg); }
 .sb-wordmark { font: 600 19px/1 var(--font-read); color: var(--ink); letter-spacing: -.01em; white-space: nowrap; }

@@ -1,38 +1,37 @@
-// Subrayado · logo de una app: su inicial en minúscula (Newsreader 700) y el trazo
-// de subrayador. Los trazados vienen de assets/logo-letters.json (a–z y ñ, caja de 64).
+// Subrayado · logo de una app: su inicial en minúscula (Newsreader 700) en tinta, el
+// trazo de su rotulador y un punto de su tinta. Los trazados vienen de
+// assets/logo-letters.json (a–z y ñ, caja de 64). El icono no cambia con el tema.
 import kit from "./assets/logo-letters.json" with { type: "json" };
 
 const INK = "#17192E";
-const MARKER = "#FFE14D";
+
+/** El rotulador de cada app y la tinta que va a juego (la del punto). */
+export const ROTULADORES = {
+  amarillo: { marker: "#FFE14D", dot: "#2B3FD6" }, // Mind Palace
+  rosa: { marker: "#FF9FCB", dot: "#B0215E" },
+  verde: { marker: "#A3EE9C", dot: "#1C6B45" },
+  azul: { marker: "#9DD7FF", dot: "#0B6A78" },
+  naranja: { marker: "#FFBA6E", dot: "#B4471C" },
+  lila: { marker: "#CDB8FF", dot: "#6B2E8F" },
+};
 
 /**
  * Devuelve el <svg> del logo como texto.
  * - letter: la inicial de la app ("m").
- * - color: el color de la app, en hex (el icono no cambia con el tema).
- * - variant: cómo lleva el color (pendiente de elegir en el lienzo "Familia de colores"):
- *     "baldosa": baldosa del color, letra blanca, trazo amarillo debajo.
- *     "letra":   papel blanco, letra del color, trazo amarillo detrás.
- *     "tinta":   papel blanco, letra en tinta, trazo detrás y un punto del color (el de ahora).
- * - bleed: true para iconos de app (PNG, maskable): sin esquinas, el sistema las pone.
+ * - rotulador: amarillo, rosa, verde, azul, naranja o lila.
+ * - bleed: true para iconos de app (PNG, maskable): sin esquinas ni borde, el sistema las pone.
  */
-export function logoSVG({ letter, color = "#2B3FD6", variant = "tinta", size = 64, bleed = false, label } = {}) {
+export function logoSVG({ letter, rotulador = "amarillo", size = 64, bleed = false, label } = {}) {
   const glyph = kit.letters[letter?.toLowerCase()];
   if (!glyph) throw new Error(`No hay trazado para la letra "${letter}"`);
-  const rx = bleed ? 0 : kit.tile.rx;
+  const r = ROTULADORES[rotulador];
+  if (!r) throw new Error(`No hay rotulador "${rotulador}"`);
   const a11y = label ? `role="img" aria-label="${label}"` : 'aria-hidden="true"';
-  const open = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 64 64" ${a11y}>`;
-
-  if (variant === "baldosa") {
-    return open +
-      `<rect width="64" height="64" rx="${rx}" fill="${color}"/>` +
-      `<path d="${kit.swash}" fill="${MARKER}" transform="translate(0 44) scale(1 0.5) translate(0 -33)"/>` +
-      `<path d="${glyph.d}" fill="#FFFFFF" transform="translate(0 -4)"/></svg>`;
-  }
-  const tile = `<rect width="64" height="64" rx="${rx}" fill="#FFFFFF"/>`;
-  const swash = `<path d="${kit.swash}" fill="${MARKER}"/>`;
-  if (variant === "letra") {
-    return open + tile + swash + `<path d="${glyph.d}" fill="${color}"/></svg>`;
-  }
-  const { cx, cy, r } = kit.dot;
-  return open + tile + swash + `<path d="${glyph.d}" fill="${INK}"/><circle cx="${cx}" cy="${cy}" r="${r}" fill="${color}"/></svg>`;
+  const tile = bleed
+    ? `<rect width="64" height="64" fill="#FFFFFF"/>`
+    : `<rect x="0.75" y="0.75" width="62.5" height="62.5" rx="${kit.tile.rx}" fill="#FFFFFF" stroke="#E3E5EF" stroke-width="1.5"/>`;
+  const { cx, cy, r: dotR } = kit.dot;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 64 64" ${a11y}>` +
+    tile + `<path d="${kit.swash}" fill="${r.marker}"/><path d="${glyph.d}" fill="${INK}"/>` +
+    `<circle cx="${cx}" cy="${cy}" r="${dotR}" fill="${r.dot}"/></svg>`;
 }

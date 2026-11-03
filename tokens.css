@@ -1,5 +1,7 @@
 /* Subrayado · tokens. Lo común a todas las apps de la familia.
-   Cada app elige su color con <html data-color="…"> (cobalto si no pone nada).
+   Cada app tiene su rotulador: <html data-color="amarillo|rosa|verde|azul|naranja|lila">
+   (amarillo, el de Mind Palace, si no pone nada). El rotulador es el color del
+   subrayado; con él va su tinta (--accent), para botones, #temas y lo escrito a mano.
    El tema sigue al sistema; <html data-theme="light|dark"> lo fuerza. */
 
 :root {
@@ -16,19 +18,8 @@
   --line: #E3E5EF;
   --logo-tile: #FFFFFF;
 
-  /* La firma: el subrayador, igual en todas las apps */
-  --marker: #FFE14D;
-  --marker-soft: #FFF4B8;
-  --on-marker: #2A2300;
   --danger: #C2364A;
 
-  /* Colores de app: cada uno con su tono oscuro (hover, texto en tinte) y su tinte */
-  --cobalto: #2B3FD6;  --cobalto-ink: #1E2DAA;  --cobalto-tint: #E8EBFF;
-  --petroleo: #0B6A78; --petroleo-ink: #084E59; --petroleo-tint: #E0F3F5;
-  --pino: #1C6B45;     --pino-ink: #13502F;     --pino-tint: #E2F3EA;
-  --ciruela: #6B2E8F;  --ciruela-ink: #4F1F6B;  --ciruela-tint: #F2E8F8;
-  --granate: #8E1F3D;  --granate-ink: #6A132C;  --granate-tint: #F8E6EB;
-  --teja: #B4471C;     --teja-ink: #8A3311;     --teja-tint: #FBEBE3;
   --on-accent: #FFFFFF;
 
   /* Tipografía */
@@ -81,16 +72,7 @@
     --hair: #24284A;
     --line: #2A2E4E;
     --logo-tile: #1B1E37;
-    --marker: #E9CB2F;
-    --marker-soft: #3A3410;
-    --on-marker: #1E1A00;
     --danger: #FF8095;
-    --cobalto: #8A97FF;  --cobalto-ink: #B3BCFF;  --cobalto-tint: #252B5C;
-    --petroleo: #5FCAD8; --petroleo-ink: #A6E6EE; --petroleo-tint: #12394A;
-    --pino: #6CCF9C;     --pino-ink: #A9E8C6;     --pino-tint: #173A35;
-    --ciruela: #C99BEB;  --ciruela-ink: #E2C8F5;  --ciruela-tint: #322050;
-    --granate: #F28AA8;  --granate-ink: #F8C2D2;  --granate-tint: #3A1A35;
-    --teja: #FF9A6B;     --teja-ink: #FFC6A8;     --teja-tint: #3A2224;
     --on-accent: #13152A;
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 6px 20px rgba(0, 0, 0, 0.3);
     --shadow-lift: 0 2px 4px rgba(0, 0, 0, 0.4), 0 14px 36px rgba(0, 0, 0, 0.45);
@@ -107,27 +89,114 @@
   --hair: #24284A;
   --line: #2A2E4E;
   --logo-tile: #1B1E37;
-  --marker: #E9CB2F;
-  --marker-soft: #3A3410;
-  --on-marker: #1E1A00;
   --danger: #FF8095;
-  --cobalto: #8A97FF;  --cobalto-ink: #B3BCFF;  --cobalto-tint: #252B5C;
-  --petroleo: #5FCAD8; --petroleo-ink: #A6E6EE; --petroleo-tint: #12394A;
-  --pino: #6CCF9C;     --pino-ink: #A9E8C6;     --pino-tint: #173A35;
-  --ciruela: #C99BEB;  --ciruela-ink: #E2C8F5;  --ciruela-tint: #322050;
-  --granate: #F28AA8;  --granate-ink: #F8C2D2;  --granate-tint: #3A1A35;
-  --teja: #FF9A6B;     --teja-ink: #FFC6A8;     --teja-tint: #3A2224;
   --on-accent: #13152A;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 6px 20px rgba(0, 0, 0, 0.3);
   --shadow-lift: 0 2px 4px rgba(0, 0, 0, 0.4), 0 14px 36px rgba(0, 0, 0, 0.45);
 }
 
-/* El color de la app. Uno por app, ninguno más. */
+/* Cada app, su rotulador y su tinta a juego. --app-marker y --app-dot son los del
+   icono, que no cambian con el tema. */
+/* amarillo: rotulador amarillo, tinta cobalto */
 :root,
-:root[data-color="cobalto"] { --accent: var(--cobalto); --accent-ink: var(--cobalto-ink); --accent-tint: var(--cobalto-tint); --app-color: #2B3FD6; }
-:root[data-color="petroleo"] { --accent: var(--petroleo); --accent-ink: var(--petroleo-ink); --accent-tint: var(--petroleo-tint); --app-color: #0B6A78; }
-:root[data-color="pino"] { --accent: var(--pino); --accent-ink: var(--pino-ink); --accent-tint: var(--pino-tint); --app-color: #1C6B45; }
-:root[data-color="ciruela"] { --accent: var(--ciruela); --accent-ink: var(--ciruela-ink); --accent-tint: var(--ciruela-tint); --app-color: #6B2E8F; }
-:root[data-color="granate"] { --accent: var(--granate); --accent-ink: var(--granate-ink); --accent-tint: var(--granate-tint); --app-color: #8E1F3D; }
-:root[data-color="teja"] { --accent: var(--teja); --accent-ink: var(--teja-ink); --accent-tint: var(--teja-tint); --app-color: #B4471C; }
-/* --app-color no cambia con el tema: es el del icono y el de las barras de color. */
+:root[data-color="amarillo"] {
+  --marker: #FFE14D; --marker-soft: #FFF4B8; --on-marker: #2A2300;
+  --accent: #2B3FD6; --accent-ink: #1E2DAA; --accent-tint: #E8EBFF;
+  --app-marker: #FFE14D; --app-dot: #2B3FD6;
+}
+/* rosa: rotulador rosa, tinta frambuesa */
+:root[data-color="rosa"] {
+  --marker: #FF9FCB; --marker-soft: #FFE3F0; --on-marker: #3A0F24;
+  --accent: #B0215E; --accent-ink: #8A1849; --accent-tint: #FBE4EF;
+  --app-marker: #FF9FCB; --app-dot: #B0215E;
+}
+/* verde: rotulador verde, tinta pino */
+:root[data-color="verde"] {
+  --marker: #A3EE9C; --marker-soft: #E3F8E1; --on-marker: #0F2E12;
+  --accent: #1C6B45; --accent-ink: #13502F; --accent-tint: #E2F3EA;
+  --app-marker: #A3EE9C; --app-dot: #1C6B45;
+}
+/* azul: rotulador azul, tinta petróleo */
+:root[data-color="azul"] {
+  --marker: #9DD7FF; --marker-soft: #E2F3FF; --on-marker: #0B2A40;
+  --accent: #0B6A78; --accent-ink: #084E59; --accent-tint: #E0F3F5;
+  --app-marker: #9DD7FF; --app-dot: #0B6A78;
+}
+/* naranja: rotulador naranja, tinta teja */
+:root[data-color="naranja"] {
+  --marker: #FFBA6E; --marker-soft: #FFEBD6; --on-marker: #3A1E05;
+  --accent: #B4471C; --accent-ink: #8A3311; --accent-tint: #FBEBE3;
+  --app-marker: #FFBA6E; --app-dot: #B4471C;
+}
+/* lila: rotulador lila, tinta ciruela */
+:root[data-color="lila"] {
+  --marker: #CDB8FF; --marker-soft: #EEE8FF; --on-marker: #22164A;
+  --accent: #6B2E8F; --accent-ink: #4F1F6B; --accent-tint: #F2E8F8;
+  --app-marker: #CDB8FF; --app-dot: #6B2E8F;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]),
+    :root[data-color="amarillo"]:not([data-theme="light"]) {
+    --marker: #E9CB2F; --marker-soft: #3A3410; --on-marker: #1E1A00;
+    --accent: #8A97FF; --accent-ink: #B3BCFF; --accent-tint: #252B5C;
+    --app-marker: #FFE14D; --app-dot: #2B3FD6;
+  }
+  :root[data-color="rosa"]:not([data-theme="light"]) {
+    --marker: #E58AB5; --marker-soft: #3D1F30; --on-marker: #2A0A1A;
+    --accent: #FF8FC0; --accent-ink: #FFC0DC; --accent-tint: #3D1F30;
+    --app-marker: #FF9FCB; --app-dot: #B0215E;
+  }
+  :root[data-color="verde"]:not([data-theme="light"]) {
+    --marker: #86D488; --marker-soft: #1F3A23; --on-marker: #0A200C;
+    --accent: #6CCF9C; --accent-ink: #A9E8C6; --accent-tint: #173A35;
+    --app-marker: #A3EE9C; --app-dot: #1C6B45;
+  }
+  :root[data-color="azul"]:not([data-theme="light"]) {
+    --marker: #7FC1EC; --marker-soft: #17324A; --on-marker: #071D2D;
+    --accent: #5FCAD8; --accent-ink: #A6E6EE; --accent-tint: #12394A;
+    --app-marker: #9DD7FF; --app-dot: #0B6A78;
+  }
+  :root[data-color="naranja"]:not([data-theme="light"]) {
+    --marker: #EDA155; --marker-soft: #3D2A14; --on-marker: #291403;
+    --accent: #FF9A6B; --accent-ink: #FFC6A8; --accent-tint: #3A2224;
+    --app-marker: #FFBA6E; --app-dot: #B4471C;
+  }
+  :root[data-color="lila"]:not([data-theme="light"]) {
+    --marker: #AE98EE; --marker-soft: #2C2550; --on-marker: #170E33;
+    --accent: #C99BEB; --accent-ink: #E2C8F5; --accent-tint: #322050;
+    --app-marker: #CDB8FF; --app-dot: #6B2E8F;
+  }
+}
+
+:root[data-theme="dark"],
+:root[data-color="amarillo"][data-theme="dark"] {
+  --marker: #E9CB2F; --marker-soft: #3A3410; --on-marker: #1E1A00;
+  --accent: #8A97FF; --accent-ink: #B3BCFF; --accent-tint: #252B5C;
+  --app-marker: #FFE14D; --app-dot: #2B3FD6;
+}
+:root[data-color="rosa"][data-theme="dark"] {
+  --marker: #E58AB5; --marker-soft: #3D1F30; --on-marker: #2A0A1A;
+  --accent: #FF8FC0; --accent-ink: #FFC0DC; --accent-tint: #3D1F30;
+  --app-marker: #FF9FCB; --app-dot: #B0215E;
+}
+:root[data-color="verde"][data-theme="dark"] {
+  --marker: #86D488; --marker-soft: #1F3A23; --on-marker: #0A200C;
+  --accent: #6CCF9C; --accent-ink: #A9E8C6; --accent-tint: #173A35;
+  --app-marker: #A3EE9C; --app-dot: #1C6B45;
+}
+:root[data-color="azul"][data-theme="dark"] {
+  --marker: #7FC1EC; --marker-soft: #17324A; --on-marker: #071D2D;
+  --accent: #5FCAD8; --accent-ink: #A6E6EE; --accent-tint: #12394A;
+  --app-marker: #9DD7FF; --app-dot: #0B6A78;
+}
+:root[data-color="naranja"][data-theme="dark"] {
+  --marker: #EDA155; --marker-soft: #3D2A14; --on-marker: #291403;
+  --accent: #FF9A6B; --accent-ink: #FFC6A8; --accent-tint: #3A2224;
+  --app-marker: #FFBA6E; --app-dot: #B4471C;
+}
+:root[data-color="lila"][data-theme="dark"] {
+  --marker: #AE98EE; --marker-soft: #2C2550; --on-marker: #170E33;
+  --accent: #C99BEB; --accent-ink: #E2C8F5; --accent-tint: #322050;
+  --app-marker: #CDB8FF; --app-dot: #6B2E8F;
+}
