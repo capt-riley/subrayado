@@ -1,0 +1,21 @@
+{
+  "name": "subrayado",
+  "version": "0.1.0",
+  "description": "Subrayado: el estilo común de las apps de Álvaro (tokens, fuentes, componentes, iconos y logo).",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./base.css",
+    "./base.css": "./base.css",
+    "./tokens.css": "./tokens.css",
+    "./fonts.css": "./fonts.css",
+    "./components.css": "./components.css",
+    "./icons.js": "./icons.js",
+    "./logo.js": "./logo.js",
+    "./assets/*": "./assets/*",
+    "./fonts/*": "./fonts/*"
+  },
+  "files": ["base.css", "tokens.css", "fonts.css", "components.css", "icons.js", "logo.js", "assets", "fonts"],
+  "engines": { "node": ">=22" },
+  "license": "UNLICENSED"
+}

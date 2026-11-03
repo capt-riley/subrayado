@@ -1,0 +1,133 @@
+/* Subrayado · tokens. Lo común a todas las apps de la familia.
+   Cada app elige su color con <html data-color="…"> (cobalto si no pone nada).
+   El tema sigue al sistema; <html data-theme="light|dark"> lo fuerza. */
+
+:root {
+  color-scheme: light dark;
+
+  /* Papel y tinta */
+  --paper: #FFFFFF;
+  --soft: #F5F6FA;
+  --ink: #17192E;
+  --text: #2B2E47;
+  --muted: #666A82;
+  --faint: #6B6F8C;
+  --hair: #ECEDF3;
+  --line: #E3E5EF;
+  --logo-tile: #FFFFFF;
+
+  /* La firma: el subrayador, igual en todas las apps */
+  --marker: #FFE14D;
+  --marker-soft: #FFF4B8;
+  --on-marker: #2A2300;
+  --danger: #C2364A;
+
+  /* Colores de app: cada uno con su tono oscuro (hover, texto en tinte) y su tinte */
+  --cobalto: #2B3FD6;  --cobalto-ink: #1E2DAA;  --cobalto-tint: #E8EBFF;
+  --petroleo: #0B6A78; --petroleo-ink: #084E59; --petroleo-tint: #E0F3F5;
+  --pino: #1C6B45;     --pino-ink: #13502F;     --pino-tint: #E2F3EA;
+  --ciruela: #6B2E8F;  --ciruela-ink: #4F1F6B;  --ciruela-tint: #F2E8F8;
+  --granate: #8E1F3D;  --granate-ink: #6A132C;  --granate-tint: #F8E6EB;
+  --teja: #B4471C;     --teja-ink: #8A3311;     --teja-tint: #FBEBE3;
+  --on-accent: #FFFFFF;
+
+  /* Tipografía */
+  --font-read: Newsreader, ui-serif, "New York", Georgia, serif;
+  --font-hand: Caveat, "Bradley Hand", "Segoe Print", cursive;
+  --font-ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Espacios */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 14px;
+  --space-5: 18px;
+  --space-6: 22px;
+  --space-7: 34px;
+  --space-8: 64px;
+
+  /* Radios */
+  --radius-xs: 6px;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 18px;
+  --radius-xl: 22px;
+  --radius-sheet: 26px;
+  --radius-pill: 999px;
+
+  /* Sombras */
+  --shadow: 0 1px 2px rgba(23, 25, 46, 0.05), 0 6px 20px rgba(23, 25, 46, 0.07);
+  --shadow-lift: 0 2px 4px rgba(23, 25, 46, 0.06), 0 14px 36px rgba(23, 25, 46, 0.12);
+
+  /* Maquetación */
+  --col-width: 660px;
+  --menu-width: 400px;
+  --row-min-height: 52px;
+  --touch-target: 44px;
+  --safe-t: env(safe-area-inset-top, 0px);
+  --safe-r: env(safe-area-inset-right, 0px);
+  --safe-b: env(safe-area-inset-bottom, 0px);
+  --safe-l: env(safe-area-inset-left, 0px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #13152A;
+    --soft: #1B1E37;
+    --ink: #F1F2FA;
+    --text: #D7D9EA;
+    --muted: #9195B0;
+    --faint: #8F93B2;
+    --hair: #24284A;
+    --line: #2A2E4E;
+    --logo-tile: #1B1E37;
+    --marker: #E9CB2F;
+    --marker-soft: #3A3410;
+    --on-marker: #1E1A00;
+    --danger: #FF8095;
+    --cobalto: #8A97FF;  --cobalto-ink: #B3BCFF;  --cobalto-tint: #252B5C;
+    --petroleo: #5FCAD8; --petroleo-ink: #A6E6EE; --petroleo-tint: #12394A;
+    --pino: #6CCF9C;     --pino-ink: #A9E8C6;     --pino-tint: #173A35;
+    --ciruela: #C99BEB;  --ciruela-ink: #E2C8F5;  --ciruela-tint: #322050;
+    --granate: #F28AA8;  --granate-ink: #F8C2D2;  --granate-tint: #3A1A35;
+    --teja: #FF9A6B;     --teja-ink: #FFC6A8;     --teja-tint: #3A2224;
+    --on-accent: #13152A;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 6px 20px rgba(0, 0, 0, 0.3);
+    --shadow-lift: 0 2px 4px rgba(0, 0, 0, 0.4), 0 14px 36px rgba(0, 0, 0, 0.45);
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper: #13152A;
+  --soft: #1B1E37;
+  --ink: #F1F2FA;
+  --text: #D7D9EA;
+  --muted: #9195B0;
+  --faint: #8F93B2;
+  --hair: #24284A;
+  --line: #2A2E4E;
+  --logo-tile: #1B1E37;
+  --marker: #E9CB2F;
+  --marker-soft: #3A3410;
+  --on-marker: #1E1A00;
+  --danger: #FF8095;
+  --cobalto: #8A97FF;  --cobalto-ink: #B3BCFF;  --cobalto-tint: #252B5C;
+  --petroleo: #5FCAD8; --petroleo-ink: #A6E6EE; --petroleo-tint: #12394A;
+  --pino: #6CCF9C;     --pino-ink: #A9E8C6;     --pino-tint: #173A35;
+  --ciruela: #C99BEB;  --ciruela-ink: #E2C8F5;  --ciruela-tint: #322050;
+  --granate: #F28AA8;  --granate-ink: #F8C2D2;  --granate-tint: #3A1A35;
+  --teja: #FF9A6B;     --teja-ink: #FFC6A8;     --teja-tint: #3A2224;
+  --on-accent: #13152A;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 6px 20px rgba(0, 0, 0, 0.3);
+  --shadow-lift: 0 2px 4px rgba(0, 0, 0, 0.4), 0 14px 36px rgba(0, 0, 0, 0.45);
+}
+
+/* El color de la app. Uno por app, ninguno más. */
+:root,
+:root[data-color="cobalto"] { --accent: var(--cobalto); --accent-ink: var(--cobalto-ink); --accent-tint: var(--cobalto-tint); --app-color: #2B3FD6; }
+:root[data-color="petroleo"] { --accent: var(--petroleo); --accent-ink: var(--petroleo-ink); --accent-tint: var(--petroleo-tint); --app-color: #0B6A78; }
+:root[data-color="pino"] { --accent: var(--pino); --accent-ink: var(--pino-ink); --accent-tint: var(--pino-tint); --app-color: #1C6B45; }
+:root[data-color="ciruela"] { --accent: var(--ciruela); --accent-ink: var(--ciruela-ink); --accent-tint: var(--ciruela-tint); --app-color: #6B2E8F; }
+:root[data-color="granate"] { --accent: var(--granate); --accent-ink: var(--granate-ink); --accent-tint: var(--granate-tint); --app-color: #8E1F3D; }
+:root[data-color="teja"] { --accent: var(--teja); --accent-ink: var(--teja-ink); --accent-tint: var(--teja-tint); --app-color: #B4471C; }
+/* --app-color no cambia con el tema: es el del icono y el de las barras de color. */
